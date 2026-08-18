@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Edit Teacher</title>
+<style>
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:'Segoe UI',sans-serif;
+    }
+
+    body{
+        background:#f1f5f9;
+    }
+    
+
+    .container{
+        width:650px;
+        margin:40px auto;
+        background:white;
+        padding:40px;
+        border-radius:15px;
+        box-shadow:0 5px 20px rgba(0,0,0,0.15);
+    }
+
+    h2{
+        text-align:center;
+        color:#1e3a8a;
+        margin-bottom:30px;
+    }
+
+    label{
+        display:block;
+        margin-top:15px;
+        margin-bottom:8px;
+        font-size:18px;
+        font-weight:600;
+    }
+
+    input{
+        width:100%;
+        padding:14px;
+        border:1px solid #ccc;
+        border-radius:8px;
+        font-size:16px;
+    }
+
+    input:focus{
+        outline:none;
+        border:1px solid #2563eb;
+    }
+
+    .btn{
+        width:100%;
+        background:#2563eb;
+        color:white;
+        border:none;
+        padding:15px;
+        border-radius:8px;
+        font-size:18px;
+        margin-top:25px;
+        cursor:pointer;
+    }
+
+    .btn:hover{
+        background:#1d4ed8;
+    }
+
+    .back{
+        display:inline-block;
+        margin-top:20px;
+        text-decoration:none;
+        color:#2563eb;
+        font-weight:bold;
+    }
+
+</style>
+</head>
+<body>
+
+
+<div class="container">
+<h2>Edit Teacher</h2>
+
+<form method="post" action="/edit_teacher_post/">
+    {% csrf_token %}
+
+    <input type="hidden" name="id" value="{{data.id}}">
+
+    <label>Name</label>
+<input type="text" name="name" value="{{data.name}}" required>
+
+<label>Department</label>
+<input type="text" name="department" value="{{data.department}}" required>
+
+<label>Email</label>
+<input type="email" name="email" value="{{data.email}}" required>
+
+    <button type="submit" class="btn">
+        Update Teacher
+    </button>
+
+</form>
+
+<a href="/view_teacher/" class="back">
+    ← Back to Teacher List
+</a>
+
+</div>
+
+</body>
+</html>

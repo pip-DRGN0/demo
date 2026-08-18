@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Students</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+            background:#f1f5f9;
+        }
+
+        .header{
+            background:#1e3a8a;
+            color:white;
+            text-align:center;
+            padding:20px;
+            font-size:30px;
+            font-weight:bold;
+        }
+
+        .container{
+            width:95%;
+            margin:30px auto;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            background:white;
+            box-shadow:0 5px 15px rgba(0,0,0,.1);
+            border-radius:12px;
+            overflow:hidden;
+        }
+
+        th{
+            background:#2563eb;
+            color:white;
+            padding:15px;
+        }
+
+        td{
+            padding:12px;
+            text-align:center;
+            border-bottom:1px solid #ddd;
+        }
+
+        tr:hover{
+            background:#f8fafc;
+        }
+
+        .btn{
+            text-decoration:none;
+            color:white;
+            padding:8px 15px;
+            border-radius:6px;
+            margin:2px;
+            display:inline-block;
+        }
+
+        .edit{
+            background:#16a34a;
+        }
+
+        .edit:hover{
+            background:#15803d;
+        }
+
+        .delete{
+            background:#dc2626;
+        }
+
+        .delete:hover{
+            background:#b91c1c;
+        }
+
+        .back{
+            display:inline-block;
+            margin-top:20px;
+            text-decoration:none;
+            background:#2563eb;
+            color:white;
+            padding:10px 20px;
+            border-radius:8px;
+        }
+
+        .back:hover{
+            background:#1d4ed8;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+View Students
+
+</div>
+
+<div class="container">
+
+<table>
+
+<tr>
+
+<th>#</th>
+<th>Name</th>
+<th>Roll No</th>
+<th>Department</th>
+<th>Semester</th>
+<th>Email</th>
+<th>Username</th>
+<th>Action</th>
+
+</tr>
+
+{% for i in data %}
+
+<tr>
+
+<td>{{ forloop.counter }}</td>
+
+<td>{{ i.name }}</td>
+
+<td>{{ i.rollno }}</td>
+
+<td>{{ i.department }}</td>
+
+<td>{{ i.semester }}</td>
+
+<td>{{ i.email }}</td>
+
+<td>{{ i.LOGIN.username }}</td>
+
+<td>
+
+<a href="/edit_student/{{i.id}}/" class="btn edit">
+
+Edit
+
+</a>
+
+<a href="/delete_student/{{i.id}}/"
+class="btn delete"
+onclick="return confirm('Delete this student?')">
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<a href="/admin_home/" class="back">
+
+← Back to Dashboard
+
+</a>
+
+</div>
+
+</body>
+</html>

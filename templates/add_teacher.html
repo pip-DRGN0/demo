@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Teacher</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+            background:#f1f5f9;
+        }
+
+        .header{
+            background:#1e3a8a;
+            color:white;
+            padding:20px;
+            text-align:center;
+            font-size:28px;
+            font-weight:bold;
+        }
+
+        .container{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:85vh;
+        }
+
+        .card{
+            background:white;
+            width:500px;
+            padding:35px;
+            border-radius:15px;
+            box-shadow:0px 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .card h2{
+            text-align:center;
+            color:#1e3a8a;
+            margin-bottom:25px;
+        }
+
+        .form-group{
+            margin-bottom:18px;
+        }
+
+        .form-group label{
+            display:block;
+            margin-bottom:6px;
+            font-weight:600;
+            color:#333;
+        }
+
+        .form-control{
+            width:100%;
+            padding:12px;
+            border:1px solid #d1d5db;
+            border-radius:8px;
+            font-size:15px;
+        }
+
+        .form-control:focus{
+            outline:none;
+            border-color:#2563eb;
+        }
+
+        .btn{
+            width:100%;
+            background:#2563eb;
+            color:white;
+            border:none;
+            padding:12px;
+            border-radius:8px;
+            font-size:16px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            background:#1d4ed8;
+        }
+
+        .back-btn{
+            display:inline-block;
+            margin-top:15px;
+            text-decoration:none;
+            color:#2563eb;
+            font-weight:bold;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="header">
+    College Complaint Portal
+</div>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>Add Teacher</h2>
+
+        <form method="post" action="/add_teacher_post/">
+
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label>Department</label>
+                <input type="text" name="department" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
+
+
+            <button type="submit" class="btn">
+                Add Teacher
+            </button>
+
+        </form>
+
+        <a href="/admin_home" class="back-btn">
+            ← Back to Dashboard
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

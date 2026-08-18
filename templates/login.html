@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Complaint Portal</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+        }
+
+        .login-box{
+            width:420px;
+            background:white;
+            padding:40px;
+            border-radius:15px;
+            box-shadow:0 8px 25px rgba(0,0,0,.3);
+        }
+
+        h1{
+            text-align:center;
+            color:#1e3a8a;
+            margin-bottom:10px;
+        }
+
+        p{
+            text-align:center;
+            color:#666;
+            margin-bottom:25px;
+        }
+
+        label{
+            font-weight:bold;
+            color:#333;
+        }
+
+        input[type=text],
+        input[type=password]{
+            width:100%;
+            padding:12px;
+            margin-top:8px;
+            margin-bottom:18px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            font-size:15px;
+        }
+
+        .role{
+            margin:20px 0;
+        }
+
+        .role label{
+            font-weight:normal;
+            margin-left:5px;
+        }
+
+        .btn{
+            width:100%;
+            padding:12px;
+            border:none;
+            border-radius:8px;
+            background:#2563eb;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+            transition:.3s;
+        }
+
+        .btn:hover{
+            background:#1d4ed8;
+        }
+
+        .register{
+            display:block;
+            margin-top:15px;
+            text-align:center;
+            text-decoration:none;
+            color:#2563eb;
+            font-weight:bold;
+        }
+
+        .register:hover{
+            text-decoration:underline;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <h1>College Complaint Portal</h1>
+
+    <p>Student Complaint Management System</p>
+
+    <form method="post" action="/login_post/">
+        {% csrf_token %}
+
+        <label>Username</label>
+        <input type="text" name="username" required>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <div class="role">
+
+            <input type="radio" name="type" value="student" required>
+            <label>Student</label>
+
+            <br><br>
+
+            <input type="radio" name="type" value="admin">
+            <label>Admin</label>
+
+        </div>
+
+        <button class="btn">
+            Login
+        </button>
+
+    </form>
+
+    <a href="/student_register/" class="register">
+        New Student? Register Here
+    </a>
+
+</div>
+
+</body>
+</html>

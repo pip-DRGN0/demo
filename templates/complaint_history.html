@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Complaint History</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+            background:#f1f5f9;
+        }
+
+        .header{
+            background:#1e3a8a;
+            color:white;
+            padding:20px;
+            text-align:center;
+            font-size:30px;
+            font-weight:bold;
+        }
+
+        .container{
+            width:95%;
+            margin:30px auto;
+        }
+
+        h2{
+            color:#1e3a8a;
+            margin-bottom:20px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            background:white;
+            border-radius:12px;
+            overflow:hidden;
+            box-shadow:0 5px 15px rgba(0,0,0,.1);
+        }
+
+        th{
+            background:#2563eb;
+            color:white;
+            padding:15px;
+        }
+
+        td{
+            padding:12px;
+            text-align:center;
+            border-bottom:1px solid #ddd;
+        }
+
+        tr:hover{
+            background:#f8fafc;
+        }
+
+        .pending{
+            color:#dc2626;
+            font-weight:bold;
+        }
+
+        .replied{
+            color:#16a34a;
+            font-weight:bold;
+        }
+
+        .back{
+
+            display:inline-block;
+            margin-top:20px;
+            text-decoration:none;
+            background:#2563eb;
+            color:white;
+            padding:10px 20px;
+            border-radius:8px;
+
+        }
+
+        .back:hover{
+
+            background:#1d4ed8;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+Complaint History
+
+</div>
+
+<div class="container">
+
+<h2>My Complaints</h2>
+
+<table>
+
+<tr>
+
+<th>#</th>
+<th>Date</th>
+<th>Type</th>
+<th>Faculty</th>
+<th>Title</th>
+<th>Status</th>
+<th>Reply</th>
+
+</tr>
+
+{% for i in data %}
+
+<tr>
+
+<td>{{forloop.counter}}</td>
+
+<td>{{i.date}}</td>
+
+<td>{{i.complaint_type}}</td>
+
+<td>
+
+{% if i.TEACHER %}
+
+{{i.TEACHER.name}}
+
+{% else %}
+
+--
+
+{% endif %}
+
+</td>
+
+<td>{{i.title}}</td>
+
+<td>
+
+{% if i.status == "Pending" %}
+
+<span class="pending">
+
+{{i.status}}
+
+</span>
+
+{% else %}
+
+<span class="replied">
+
+{{i.status}}
+
+</span>
+
+{% endif %}
+
+</td>
+
+<td>{{i.reply}}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<a href="/student_home/" class="back">
+
+← Back
+
+</a>
+
+</div>
+
+</body>
+</html>
