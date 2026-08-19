@@ -2,9 +2,9 @@ College Complaint Portal
 
 A simple web application built to make handling college complaints easier.
 
-The idea behind this project is pretty straightforward: students should have a place where they can submit complaints or suggestions, while teachers and administrators can view them and respond accordingly.
+The idea behind this project is pretty straightforward: students should have a place where they can submit complaints or suggestions, while  administrators can view them and respond accordingly.
 
-I built this project as a Django-based college project, with separate functionality for students, teachers, and administrators.
+I built this project as a Django-based project, with separate functionality for students and administrators.
 
 Live Website
 
@@ -32,15 +32,6 @@ Students can:
 - Choose a complaint category
 - View previously submitted complaints
 - Check their complaint history
-
-Teacher
-
-Teachers can:
-
-- Log in
-- View complaints
-- Review complaints submitted by students
-- Respond to complaints
 
 Administrator
 
@@ -145,6 +136,7 @@ There are still a few things I would like to add or improve in the future:
 - A more detailed admin dashboard
 - Better authentication and password security
 - More refined mobile responsiveness
+- Teacher specific section 
 
 About
 
