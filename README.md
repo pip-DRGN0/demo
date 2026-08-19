@@ -145,3 +145,5 @@ It started as a simple idea for managing college complaints and was developed in
 Author
 
 Karthik Sudhakaran
+![img.png](img.png)
+![img_1.png](img_1.png)
