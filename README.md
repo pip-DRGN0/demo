@@ -1,51 +1,55 @@
+
 College Complaint Portal
 
-A simple web application built to make handling college complaints easier.
+A web-based complaint management system that gives students a simple way to submit college complaints and allows administrators to review and respond to them.
 
-The idea behind this project is pretty straightforward: students should have a place where they can submit complaints or suggestions, while  administrators can view them and respond accordingly.
+"College Complaint Portal" 
 
-I built this project as a Django-based project, with separate functionality for students and administrators.
+Try it
 
-Live Website
+Live Demo: https://complaint-portal-txh4.onrender.com
 
-https://complaint-portal-txh4.onrender.com
+Open the link and use the portal directly in your browser.
 
-What It Can Do
+Quick Start
 
-- Students can create an account and log in
-- Students can submit complaints
+For the deployed version, there is nothing to install.
+
+Open: https://complaint-portal-txh4.onrender.com
+
+For testing the admin side:
+
+Username: admin
+Password: admin123
+
+Features
+
+- Student registration and login
+- Students can submit complaints and suggestions
 - Complaints can be categorized as Faculty, College, Suggestion, or Other
 - Students can view their complaint history
 - Administrators can add, edit, view, and delete teacher records
-- Teachers and administrators can view complaints
+- Teachers and administrators can review complaints
 - Complaints can be replied to
-- Student and teacher information can be managed through the portal
+- PostgreSQL database for storing application data
+- Responsive web interface
+- Deployed and accessible online through Render
 
-User Roles
+How It Works
 
-Student
+The portal separates the application into different roles.
 
-Students can:
+Students use the portal to submit complaints and check their previous submissions. administrators have additional management features for students, teachers, and complaints.
 
-- Register and log in
-- Submit complaints
-- Choose a complaint category
-- View previously submitted complaints
-- Check their complaint history
+The application is built with Django, which handles the application logic, database operations, URLs, and authentication flow.
 
-Administrator
+For production, the application uses PostgreSQL instead of the local development database. The database connection is provided through the "DATABASE_URL" environment variable.
 
-The administrator has access to the management side of the portal and can:
+Static files are collected during deployment and served using WhiteNoise.
 
-- Manage teachers
-- View students
-- Manage complaints
-- Respond to complaints
-- Edit and remove teacher information
+The application is hosted on Render using Gunicorn.
 
 Tech Stack
-
-This project was built using:
 
 - Python
 - Django
@@ -56,94 +60,101 @@ This project was built using:
 - WhiteNoise
 - Render
 
-How the Project Works
+Run Locally
 
-The application is built with Django. The frontend provides the different pages for students, teachers, and administrators, while Django handles the application logic and database operations.
+Requirements
 
-For the deployed version, PostgreSQL is used as the database and Render is used to host the application.
+- Python 3
+- pip
+- Git
 
-Running It Locally
-
-Clone the repository:
+Clone the project
 
 git clone https://github.com/pip-DRGN0/demo.git
 cd demo
 
-Create a virtual environment:
+Create a virtual environment
 
 python -m venv .venv
 
-Activate it on Windows:
+On Windows:
 
 .venv\Scripts\activate
 
-Install the required packages:
+Install dependencies
 
 pip install -r requirements.txt
 
-Run the database migrations:
+Run migrations
 
 python manage.py migrate
 
-Start the development server:
+Start the server
 
 python manage.py runserver
 
-Then open:
+Open:
 
 http://127.0.0.1:8000/
 
 Deployment
 
-The project is deployed on Render.
+The project is deployed using Render.
 
-Build command:
+Build Command
 
 pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
 
-Start command:
+Start Command
 
 gunicorn djangoproject.wsgi:application
 
-The production database connection is handled using the "DATABASE_URL" environment variable.
-
-Other environment variables used by the application include:
+The production database is connected using:
 
 DATABASE_URL
+
+Other production environment variables include:
+
 SECRET_KEY
 DEBUG
 ALLOWED_HOSTS
 
-Sensitive values should not be committed to GitHub.
+Sensitive values should not be stored directly in the repository.
+
+Database
+
+The application uses Django models for managing:
+
+- Login accounts
+- Students
+- Teachers
+- Complaints
+
+Django migrations create and update the required database tables during deployment.
 
 Complaint Categories
 
-Currently, complaints can be classified as:
+Currently supported categories are:
 
 - Faculty
 - College
 - Suggestion
 - Other
 
-Things I Want to Improve
+Future Improvements
 
-There are still a few things I would like to add or improve in the future:
+Some things I would like to improve later:
 
-- Email notifications when a complaint is updated
 - Complaint status tracking
+- Email notifications
 - Better search and filtering
 - File and image attachments
 - A more detailed admin dashboard
-- Better authentication and password security
-- More refined mobile responsiveness
-- Teacher specific section 
+- Stronger password security
+- More detailed role-based permissions
+- Better mobile supporting
 
-About
+Developed by Karthik Sudhakaran.
 
-It started as a simple idea for managing college complaints and was developed into a working Django application with a PostgreSQL database and a live deployment.
-
-Author
-
-Karthik Sudhakaran
 ![img.png](img.png)
 ![img_1.png](img_1.png)
